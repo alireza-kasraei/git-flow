@@ -38,9 +38,9 @@ example:
 
 usually branch off from **develop**, must merge back to **develop** and **master**, and we name it with **release-*** naming convention. release branches contain a pre-determined amount of features and  should be deployed to a staging
 server for QA testing. furthermore they allow for minor bug fixes and preparing meta-data for a release (version number, build dates , ...). by doing all of this work on a release branch, the **develop** branch is cleared to receive
-features for the next big release. The key moment to branch off a new release branch from develop is when develop (almost) reflects the desired state of the new release. At least all features that are targeted for the release-to-be-built must be merged in to develop at this point in time. All features targeted at future releases may not—they must wait until after the release branch is branched off.
+features for the next big release. The key moment to branch off a new release branch from develop is when develop (almost) reflects the desired state of the new release. At least all features that are targeted for the release-to-be-built must be merged in to develop at this point in time. All features targeted at future releases may notâ€”they must wait until after the release branch is branched off.
 
-It is exactly at the start of a release branch that the upcoming release gets assigned a version number—not any earlier. Up until that moment, the develop branch reflected changes for the **next release**, but it is unclear whether that **next release** will eventually become 0.3 or 1.0, until the release branch is started. That decision is made on the start of the release branch and is carried out by the project’s rules on version number bumping.
+It is exactly at the start of a release branch that the upcoming release gets assigned a version numberâ€”not any earlier. Up until that moment, the develop branch reflected changes for the **next release**, but it is unclear whether that **next release** will eventually become 0.3 or 1.0, until the release branch is started. That decision is made on the start of the release branch and is carried out by the projectâ€™s rules on version number bumping.
 
 example:
 
@@ -65,4 +65,8 @@ branch off from **master**, must merge back to **develop** and **master**, and w
 *	switch back to master : `git checkout master`
 *	merge it : `git merge --no-ff hotfix-1.2.1`
 *	finally tag it : `git tag -a 1.2.1`
-*	
+*	now merge it with develop : `git checkout develop`
+* merge it : `git merge --no-ff hotfix-1.2.1`
+
+
+very well documented and described by [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model)
